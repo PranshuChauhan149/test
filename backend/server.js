@@ -10,9 +10,9 @@ dotenv.config();
 const app = express();
 app.use(express.json())
 app.use(cors({
-  origin:"http://localhost:5173",
-  credentials:true
-}))
+  origin: "https://test-1-7jyo.onrender.com", // your frontend Render URL
+  credentials: true // allows cookies/auth headers if needed
+}));
 
 
 
