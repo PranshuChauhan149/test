@@ -11,7 +11,7 @@ const App = () => {
 
     const getAllMessage = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/api/create/all", {
+      const res = await axios.get("https://test-b7a8.onrender.com/api/create/all", {
         withCredentials: true,
       });
       if (res.data.ress && res.data.ress) {
