@@ -23,8 +23,7 @@ const Signup = () => {
         },
         { withCredentials: true }
       );
-      console.log(result.data);
-      setUser(result.data)
+      navigate("/login")
       
     } catch (error) {
       console.log("Something is wrong ");

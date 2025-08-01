@@ -23,7 +23,8 @@ const Login = () => {
         { withCredentials: true }
       );
       console.log(result.data);
-      setUser(result.data);
+      setUser(result.data.user);
+      navgaite("/")
     } catch (error) {
       console.log("Something is wrong ");
     }
