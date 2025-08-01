@@ -14,7 +14,7 @@ const app = express();
 app.use(cookieParser())
 app.use(express.json())
 app.use(cors({
-  origin: "http://localhost:5173", // your frontend Render URL
+  origin: "https://test-1-frontend-ogfm.onrender.com", // your frontend Render URL
   credentials: true // allows cookies/auth headers if needed
 }));
 
@@ -32,3 +32,4 @@ app.listen(PORT, () => {
   connectDb();
   console.log("server is running on this port " + PORT);
 });
+
