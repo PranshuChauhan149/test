@@ -26,12 +26,12 @@ export const SignUp = async (req, res) => {
 
     const token = await genToken(user._id);
 
-    res.cookie("token", token, {
-      httpOnly: true,
-      maxAge: 7 * 24 * 60 * 60 * 1000, 
-      sameSite: "Lax",                 
-      secure: false,                     
-    });
+ res.cookie("token", token, {
+  httpOnly: true,
+  maxAge: 7 * 24 * 60 * 60 * 1000,  // 7 days
+  sameSite: "None",                // required for cross-site cookies
+  secure: true,                    // required for HTTPS
+});
 
     return res.json({ success: true, message: "Account created successfully" });
 
@@ -63,12 +63,13 @@ export const Login = async (req, res) => {
 
     const token = await genToken(user._id);
 
-    res.cookie("token", token, {
-      httpOnly: true,
-      maxAge: 7 * 24 * 60 * 60 * 1000,
-      sameSite: "Lax",   // ✅ Must be 'None' for cross-domain
-      secure: false,       // ✅ Must be true on HTTPS
-    });
+   res.cookie("token", token, {
+  httpOnly: true,
+  maxAge: 7 * 24 * 60 * 60 * 1000,  // 7 days
+  sameSite: "None",                // required for cross-site cookies
+  secure: true,                    // required for HTTPS
+});
+
 
     return res.json({ success: true,user });
 
@@ -81,8 +82,8 @@ export const Login = async (req, res) => {
 export const Logout = async (req, res) => {
   try {
     res.clearCookie("token", {
-      sameSite: "Lax",  // ✅ Make sure to clear the correct cookie
-      secure: false,      // ✅ Must match the cookie's original options
+      sameSite: "None",  // ✅ Make sure to clear the correct cookie
+      secure: true,      // ✅ Must match the cookie's original options
     });
 
     return res.json({ success: true, message: "Logout successfully" });
@@ -114,3 +115,4 @@ export const currentUser = async (req, res) => {
     return res.json({ success: false, message: "currentUser Error" });
   }
 };
+
