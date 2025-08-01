@@ -9,6 +9,7 @@ import axios from 'axios';
 const App = () => {
   const { User, server_Url,setUser} = useMyContext();
 
+<<<<<<< HEAD
 const getCurrentUser = async () => {
   try {
     const result = await axios.get(`${server_Url}/api/user/current`, {
@@ -21,6 +22,19 @@ const getCurrentUser = async () => {
       setUser(result.data.user);  // ✔️ Save user in context
     } else {
       setUser(null);              // ❌ Not logged in
+=======
+    const getAllMessage = async () => {
+    try {
+      const res = await axios.get("https://test-b7a8.onrender.com/api/create/all", {
+        withCredentials: true,
+      });
+      if (res.data.ress && res.data.ress) {
+        setAll(res.data.ress); // assuming your backend sends { messages: [...] }
+        console.log(res.data.ress);
+      }
+    } catch (error) {
+      console.log("error in getAllMessage", error);
+>>>>>>> 24fe686b063eecf5508ad2b6bae93ba64355dd5b
     }
 
   } catch (error) {
@@ -29,6 +43,7 @@ const getCurrentUser = async () => {
   }
 }
 
+<<<<<<< HEAD
 useEffect(() => {
   getCurrentUser();
 }, []);
@@ -55,3 +70,6 @@ useEffect(() => {
 };
 
 export default App;
+=======
+export default App
+>>>>>>> 24fe686b063eecf5508ad2b6bae93ba64355dd5b

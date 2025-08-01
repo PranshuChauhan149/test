@@ -6,7 +6,7 @@ const Message = ({setCount,count}) => {
 
   const handleBtn = async()=>{
     try{
-      const res = await axios.post("http://localhost:8000/api/create/message",{message:value},{withCredentials:true})
+      const res = await axios.post("https://test-b7a8.onrender.com/api/create/message",{message:value},{withCredentials:true})
       if(res){
         setCount(count+1)        
       }
