@@ -8,7 +8,7 @@ const AppContext = createContext();
 export const MyProvider = ({ children }) => {
   const [User, setUser] = useState(null);
 
-  const server_Url = "http://localhost:8000"; 
+  const server_Url = "https://test-b7a8.onrender.com"; 
 
 
 
@@ -31,3 +31,4 @@ export const MyProvider = ({ children }) => {
 
 
 export const useMyContext = () => useContext(AppContext);
+
