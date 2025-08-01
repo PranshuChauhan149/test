@@ -2,12 +2,16 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from 'cors'
 import connectDb from "./config/db.js";
-import MesRouter from "./routes/mesRoute.js";
+
+import userRouter from "./routes/userRouter.js";
+import cookieParser from "cookie-parser";
+import memberRouter from "./routes/memberRouter.js";
 
 
 
 dotenv.config();
 const app = express();
+app.use(cookieParser())
 app.use(express.json())
 app.use(cors({
   origin:"http://localhost:5173",
@@ -21,7 +25,8 @@ app.get("/", (req, res) => {
 });
 
 let PORT = process.env.PORT || 5000;
-app.use("/api/create/",MesRouter);
+app.use("/api/user/",userRouter);
+app.use("/api/member/",memberRouter);
 
 app.listen(PORT, () => {
   connectDb();
